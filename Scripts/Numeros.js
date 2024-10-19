@@ -10,7 +10,6 @@ export function Numeros() {
       x.innerText = 0;
       const Timer = setInterval(() => {
         soma += incremento;
-        console.log(soma);
         x.innerText = soma;
         if (++x.innerText >= total) {
           x.innerText = total;
