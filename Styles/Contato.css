@@ -1,0 +1,48 @@
+.container_contato{
+    grid-column: 2/-1;
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+}
+
+.container_contato img{
+    max-width: 300px;
+}
+
+.contato_infos{
+    display: grid;
+    gap: 1rem;
+}
+
+.contato_infos li{
+    display: inline-block;
+    gap: .5rem;
+    align-items: center;
+
+}
+
+.contato_infos li::before{
+    content: '';
+    display: inline-block;
+    margin-right: .2rem;
+    width: 20px;
+
+    height: 10px;
+    background: var(--Yellow);
+}
+#BTC{
+    background: var(--Green);
+    font-weight: 700;
+    font-size: .9rem;
+    padding: .2rem;
+}
+@media (max-width:700px) {
+    .container_contato{
+     display: grid;
+     grid-column: 1/-1;
+     padding-top: 1rem;
+    }
+    .container_contato img{
+        max-width: 100%;
+    }
+}

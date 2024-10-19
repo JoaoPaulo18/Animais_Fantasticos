@@ -1,0 +1,32 @@
+.container_numeros{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 2/-1;
+    gap: 2rem;
+}
+
+.numero_single{
+    display: grid;
+    gap: 1rem;
+}
+
+.numero_single h3{
+    color: var(--Red);
+    font-family: var(--Plex);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.numero_single span{
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #555;
+}
+
+@media (max-width:700px) {
+    .container_numeros{
+        grid-column: 1/-1;
+        padding-top: 1rem;
+    }
+    
+}

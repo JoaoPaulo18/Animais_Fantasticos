@@ -1,0 +1,77 @@
+.Animals_image{
+    gap: 2rem;
+}
+.Images_animals{
+    grid-column: 2; 
+    max-height: 375px;
+    overflow-y: scroll;
+}
+.Images_animals li{cursor: pointer;}
+
+.Images_animals::-webkit-scrollbar{
+    width: 18px;
+}
+
+.Images_animals::-webkit-scrollbar-thumb{
+    background: var(--Yellow);
+    border-right: 4px solid white;
+    border-left: 4px solid white;
+}
+
+.Texts_animals div{
+    opacity: 0;
+    height: 0;
+    transform: translateX(-20px);
+    transition: transform opacity .3s ease;
+    animation: .3s ease forwards;
+}
+
+.Texts_animals .active{
+        height: 100%;
+    animation-name:Appear ;
+}
+@keyframes Appear {
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.Texts_animals h3{
+    color: var(--Red);
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.Texts_animals h3::before{
+    content: '';
+    display: block;
+    width: 32px;
+    height: 10px;
+    background: var(--Yellow);
+}
+
+.Texts_animals p{
+    max-width: 55ch;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+@media (max-width:700px) {
+    .Animals_image{
+        grid-column: 1;
+    }
+    .Images_animals{
+        grid-column: 1;
+    }
+    .Texts_animals p{
+        font-size: .8rem;
+    }
+}
+@media (max-width:350px) {
+    .Texts_animals p{
+        font-size: .7rem;
+    }
+}

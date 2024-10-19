@@ -1,0 +1,138 @@
+.Header{
+    grid-column: 3/-1;
+    padding: 2rem 0;
+}
+
+.Header_navigation{
+    position: relative;
+    background: var(--Yellow);
+    padding: 1rem .8rem;
+}
+.Mobile_button{
+    display: none;
+}
+.Header_list{
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    font-family: var(--Plex);
+    text-transform: uppercase;
+    font-weight: 100;
+    position: relative;
+}
+
+.Header_list li{
+    padding: .5rem;
+}
+
+.Header_list a{
+    display: block;
+}
+
+.Sub_hover{
+    position: relative;
+}
+
+.Sub_nav{
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    position: absolute;
+    background: var(--Red);
+    display: grid;
+    border: 3px solid;
+    top:38px;
+    transition: .3s ease;
+    z-index: 1000;
+}
+.Sub_nav::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--Red);
+    top: -8px;
+    left: 20px;
+}
+
+.Sub_hover:hover .Sub_nav, .Sub_hover.active .Sub_nav{
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: all;
+}
+.Sub_hover .Sub_nav a{
+    padding: .3rem .5rem;
+    cursor: pointer;
+}
+.Sub_hover .Sub_nav a:is(:hover,:focus) {
+    color: white;
+}
+
+@media (max-width:700px) {
+    .Header{
+        grid-column: 1/-1;
+        padding: 0;
+    }
+    .Mobile_button{
+        display: block;
+        background: #222222;
+        outline: none;
+        border: none;
+        color: white;
+        padding: .5rem 1rem;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: .75rem;
+        font-family: var(--Plex);
+        cursor: pointer;
+        position: relative;
+        z-index: 1000;
+    }
+    .Mobile_button::before{
+        content: '';
+        display: block;
+        width: 11px;
+        height: 2px;
+        background: white;
+        box-shadow: 0px 4px 0 0 white, 0px -4px 0 0 white;
+        transition: .3s ease transform;
+    }
+    .Mobile_button.active::before{
+        transform: rotate(90deg);
+    }
+    .Header_list{
+        position: absolute;
+        flex-direction: column;
+        background: var(--Yellow);
+        align-items:start;
+        padding: 4rem 0 2rem 0;
+        top: 0;
+        left: -100%;
+        z-index: 999;
+        box-shadow: 0px 0px 15px 0px rgba(44, 44, 44, .3);
+        transition: .3s ease;
+    }
+
+    .Sub_nav{
+        position: relative;
+        padding: .5rem 0;
+        opacity: 0;
+        background: var(--Red);
+        display: grid;
+        border: 3px solid;
+        top:0px;
+        border: none;
+        opacity: 1;
+        pointer-events: all;
+    }
+    .Mobile_button.active ~ .Header_list{
+        left: 0;
+    }
+}
